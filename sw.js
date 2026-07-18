@@ -1,46 +1,73 @@
-const CACHE='oatf-v6.8.2';
-const SCOPE=new URL(self.registration.scope);
-const paths=[
-  '', 'index.html','404.html','manifest.webmanifest',
-  'assets/styles.css','assets/v4.css','assets/mobile-app.css','assets/v61.css','assets/v62.css','assets/v63.css','assets/v64.css','assets/v65.css','assets/v66.css','assets/v67.css','assets/v68.css','assets/v681.css','assets/v682.css',
-  'assets/site.js','assets/mobile-app.js','assets/v61.js','assets/v62.js','assets/v63.js','assets/v64.js','assets/v65.js','assets/v66.js','assets/v67.js','assets/v68.js','assets/v681.js','assets/v682.js','assets/favicon.svg',
-  'assets/icons/icon-192.png','assets/icons/icon-512.png','assets/icons/apple-touch-icon.png',
-  'assets/images/oatf-logo-fallback.svg','assets/images/hero-fallback.svg',
-  'assets/images/riverside-fallback.svg','assets/images/sandiego-fallback.svg',
-  'assets/images/orangecounty-fallback.svg','assets/images/mascot-fallback.svg',
-  'about/','history/','faq/','contact/','participate/','photos/','californiafairs/',
-  'riversidecountyfair/','sdfair/','orangecountyfair/',
-  'pennants/','giveaways/','tvsfa/'
+const CACHE = 'oatf-v6.9';
+const CORE = [
+  '/',
+  '/index.html',
+  '/404.html',
+  '/manifest.webmanifest',
+  '/assets/app.css',
+  '/assets/app.js',
+  '/assets/favicon.svg',
+  '/assets/icons/icon-192.png',
+  '/assets/icons/icon-512.png',
+  '/assets/icons/apple-touch-icon.png',
+  '/assets/images/oatf-logo-fallback.svg',
+  '/assets/images/hero-fallback.svg',
+  '/assets/images/riverside-fallback.svg',
+  '/assets/images/sandiego-fallback.svg',
+  '/assets/images/orangecounty-fallback.svg'
 ];
-const urls=paths.map(p=>new URL(p,SCOPE).href);
-self.addEventListener('install',event=>{
+
+self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE)
-      .then(cache=>Promise.allSettled(urls.map(url=>cache.add(url))))
-      .then(()=>self.skipWaiting())
+      .then(cache => cache.addAll(CORE))
+      .then(() => self.skipWaiting())
   );
 });
-self.addEventListener('activate',event=>{
+
+self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys()
-      .then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))
-      .then(()=>self.clients.claim())
+      .then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key))))
+      .then(() => self.clients.claim())
   );
 });
-self.addEventListener('fetch',event=>{
-  if(event.request.method!=='GET') return;
-  const req=event.request;
-  event.respondWith(
-    caches.match(req).then(cached=>{
-      const fresh=fetch(req).then(response=>{
-        if(response && response.ok){
-          caches.open(CACHE).then(cache=>cache.put(req,response.clone()));
-        }
-        return response;
-      }).catch(()=>cached || (req.mode==='navigate'
-        ? caches.match(new URL('404.html',SCOPE).href)
-        : undefined));
-      return cached || fresh;
-    })
-  );
+
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+
+  const request = event.request;
+  const url = new URL(request.url);
+
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put(request, copy));
+          return response;
+        })
+        .catch(async () => {
+          return (await caches.match(request)) || caches.match('/404.html');
+        })
+    );
+    return;
+  }
+
+  if (url.origin === self.location.origin) {
+    event.respondWith(
+      caches.match(request).then(cached => {
+        const network = fetch(request)
+          .then(response => {
+            if (response && response.ok) {
+              caches.open(CACHE).then(cache => cache.put(request, response.clone()));
+            }
+            return response;
+          })
+          .catch(() => cached);
+
+        return cached || network;
+      })
+    );
+  }
 });
