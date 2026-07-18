@@ -1,19 +1,17 @@
-# Out at the Fair — Version 2 Preview
+# Out at the Fair — Version 3 Concept
 
-This repository is a staging preview for the future GitHub-hosted Out at the Fair website.
+This is a design-preview build for the `outatthefair_2` GitHub Pages staging repository.
 
-## Safe preview setup
+## Changes from V2
+- New high-tech 2027 hero experience
+- More breathing room in every large headline
+- New dark/glass visual system shared by all interior pages
+- Interactive fair cards and cursor-reactive hero lighting
+- Moving signal marquee, stats and historical timeline
+- Motion respects `prefers-reduced-motion`
+- No `CNAME` file, so this preview will not take over the live Wix domain
 
-- This package intentionally does **not** include a `CNAME` file.
-- It will publish only at the GitHub project URL, such as:
-  `https://3dudes1life.github.io/outatthefair_2/`
-- The current Wix-hosted `outatthefair.com` site remains untouched.
+## Upload
+Delete the existing repository files and upload the contents of this folder to the root of `outatthefair_2`.
 
-## Publish on GitHub Pages
-
-1. Replace the existing repository contents with everything in this package.
-2. Commit the files to `main`.
-3. In **Settings → Pages**, use **Deploy from a branch**, `main`, `/ (root)`.
-4. Do not enter `outatthefair.com` as the custom domain during the preview stage.
-
-All internal links use project-relative paths, so navigation works correctly under the `/outatthefair_2/` preview URL.
+Images are still referencing Wix for fast design iteration. Local asset migration and performance optimization should happen after the visual direction is approved.
