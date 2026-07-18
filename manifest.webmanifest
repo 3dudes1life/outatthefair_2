@@ -43,5 +43,6 @@
       "short_name": "Photos",
       "url": "photos/"
     }
-  ]
+  ],
+  "id": "./"
 }

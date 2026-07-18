@@ -1,17 +1,21 @@
-# Out at the Fair V6.1
+# Out at the Fair® V6.2
 
-V6.1 is the first Road to V7 milestone. It rebuilds the homepage as a cinematic, mobile-first OATF experience while preserving the complete existing site and PWA foundation.
+V6.2 extends the V6.1 homepage system across the complete website and hardens the build for GitHub Pages, iPhone, iPad and Home Screen use.
 
-## V6.1 highlights
-- New immersive homepage hero
-- Apple-inspired spacing and editorial hierarchy
-- OATF branded glow, color and glass language
-- Mobile swipe fair rail
-- Rebuilt experience, network, legacy, participation and final CTA sections
-- Touch-first controls and responsive layouts
-- Reduced-motion support
-- Existing interior pages remain intact
-- Existing installable PWA behavior remains intact
+## V6.2 additions
+- Site-wide Apple-inspired interior page styling
+- Unified cards, typography, spacing and page heroes
+- Improved FAQ, information rows and fair detail layouts
+- Image loading states and local branded fallbacks
+- No broken image icons if a Wix-hosted image is unavailable
+- More resilient GitHub Pages service worker
+- Repository-subpath-safe PWA caching
+- Internal page loading indicator
+- Online/offline status messaging
+- Improved current-page navigation accessibility
+- Lazy loading for noncritical images
+- Reduced-motion and keyboard-focus support
 
-## Release path
-V6.1 Homepage → V6.2 Interior pages → V6.3 History → V6.4 Fair network → V6.5 Archive → V6.6 Performance/SEO → V7 Launch Edition
+## Deployment
+Upload the contents of this ZIP to the root of the staging GitHub repository.
+There is no CNAME file, so this package does not redirect the live Wix domain.
