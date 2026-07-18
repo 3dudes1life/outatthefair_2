@@ -1,0 +1,195 @@
+/* OATF V6.8 — OneSignal Web Push Integration */
+
+.oatf-push-control{
+  position:fixed;
+  z-index:1750;
+  right:18px;
+  bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  max-width:min(360px,calc(100vw - 36px));
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  background:rgba(17,11,27,.94);
+  color:#fff;
+  box-shadow:0 18px 56px rgba(0,0,0,.42);
+  backdrop-filter:blur(20px) saturate(1.15);
+  -webkit-backdrop-filter:blur(20px) saturate(1.15);
+  transform:translateY(18px);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .24s ease,transform .24s ease;
+}
+
+.oatf-push-control.is-ready{
+  transform:translateY(0);
+  opacity:1;
+  pointer-events:auto;
+}
+
+.oatf-push-icon{
+  flex:0 0 42px;
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff3f99,#7c5cff);
+  font-size:1.15rem;
+}
+
+.oatf-push-copy{
+  min-width:0;
+  flex:1;
+}
+
+.oatf-push-copy strong{
+  display:block;
+  margin-bottom:2px;
+  font-size:.94rem;
+}
+
+.oatf-push-copy span{
+  display:block;
+  color:#d0c4d6;
+  font-size:.78rem;
+  line-height:1.35;
+}
+
+.oatf-push-button{
+  min-height:42px;
+  padding:10px 13px;
+  border:0;
+  border-radius:13px;
+  background:#fff;
+  color:#120b1c;
+  font:inherit;
+  font-size:.82rem;
+  font-weight:900;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.oatf-push-button:hover{
+  transform:translateY(-1px);
+}
+
+.oatf-push-button:disabled{
+  opacity:.65;
+  cursor:default;
+  transform:none;
+}
+
+.oatf-push-dismiss{
+  position:absolute;
+  top:-9px;
+  right:-8px;
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:50%;
+  background:#1c1328;
+  color:#fff;
+  font-size:.95rem;
+  cursor:pointer;
+}
+
+.oatf-ios-push-help{
+  position:fixed;
+  z-index:2300;
+  inset:0;
+  display:none;
+  place-items:end center;
+  padding:18px;
+  background:rgba(4,2,8,.72);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+.oatf-ios-push-help.is-open{
+  display:grid;
+}
+
+.oatf-ios-push-card{
+  width:min(520px,100%);
+  padding:26px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 12% 8%,rgba(255,63,153,.16),transparent 16rem),
+    linear-gradient(180deg,#171020,#09060f);
+  color:#fff;
+  box-shadow:0 24px 90px rgba(0,0,0,.6);
+}
+
+.oatf-ios-push-card h2{
+  margin:0 0 10px;
+  font-size:clamp(1.65rem,6vw,2.5rem);
+}
+
+.oatf-ios-push-card p{
+  color:#d4c8d8;
+  line-height:1.6;
+}
+
+.oatf-ios-steps{
+  display:grid;
+  gap:10px;
+  margin:20px 0;
+}
+
+.oatf-ios-step{
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:12px;
+  align-items:start;
+  padding:12px;
+  border-radius:14px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.oatf-ios-step b{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.1);
+}
+
+.oatf-ios-close{
+  width:100%;
+  min-height:48px;
+  border:0;
+  border-radius:14px;
+  background:#fff;
+  color:#120b1c;
+  font:inherit;
+  font-weight:900;
+  cursor:pointer;
+}
+
+@media(max-width:700px){
+  .oatf-push-control{
+    left:12px;
+    right:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom,0px));
+    max-width:none;
+  }
+
+  .oatf-push-copy span{
+    display:none;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .oatf-push-control{
+    transition:none;
+  }
+}

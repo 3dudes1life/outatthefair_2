@@ -1,34 +1,39 @@
-# Out at the Fair® V6.7
+# Out at the Fair® V6.8
 
-V6.7 completely rebuilds the mobile navigation experience.
+V6.8 adds OneSignal Web Push to the existing OATF website/PWA.
 
-## Mobile navigation
-- Replaced the previous layered mobile menu behavior
-- Added a true full-height mobile drawer
-- Added a separate backdrop that always sits behind the menu
-- Removed old pseudo-element overlays that could blur menu content
-- Bright, fully readable navigation text
-- iPhone safe-area support
-- Locked body scrolling while menu is open
-- Outside-tap closing
-- Escape-key closing
-- Improved mobile submenu behavior
-- Larger touch targets
-- Preserved desktop navigation
+## Included
+- OneSignal Web SDK v16 on every page
+- App ID: `58afac42-f259-4105-8bc6-c9ff2414f2e7`
+- Dedicated worker at `/push/onesignal/OneSignalSDKWorker.js`
+- Dedicated worker scope to avoid conflict with the existing PWA worker
+- Branded notification invitation
+- Subscription state handling
+- 30-day dismissal memory
+- iPhone/iPad Add-to-Home-Screen instructions
+- Updated PWA cache version
 
-## Accessibility
-- Skip-to-content link is hidden until keyboard focus
-- Improved focus handling when the menu opens
-- Correct mobile `aria-expanded` and `aria-hidden` states
-- Reduced-motion support
-- Menu returns focus to the hamburger after Escape
+## Required OneSignal dashboard settings
+Under **Settings → Push & In-App → Web**:
 
-## Technical
-- Added `assets/v67.css`
-- Added `assets/v67.js`
-- Updated service-worker cache to `oatf-v6.7`
-- Preserved all V6.6 fair layout, SEO, accessibility and performance upgrades
+- Integration: Custom Code or Typical Site
+- Site URL: the exact production origin, such as `https://outatthefair.com`
+- Path to service worker files: `/push/onesignal/`
+- Service worker filename: `OneSignalSDKWorker.js`
+- Service worker registration scope: `/push/onesignal/`
 
-## Deployment
-Upload the contents of this ZIP directly to the root of the staging GitHub repository.
-After deploying, refresh the live site twice or clear Safari website data once so the previous service-worker cache is replaced.
+## Important
+Web push requires HTTPS and does not work in private/incognito browsing.
+
+For iPhone and iPad, the user must be on iOS/iPadOS 16.4 or newer and launch the website from a Home Screen icon before enabling notifications.
+
+OneSignal subscriptions are tied to a single origin. A GitHub Pages preview origin and the production custom domain cannot share the same production web-push subscription configuration unless the dashboard app is configured for that exact origin.
+
+## Verification
+After deployment, open:
+
+`https://YOUR-DOMAIN/push/onesignal/OneSignalSDKWorker.js`
+
+It should display:
+
+`importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");`
