@@ -1,0 +1,47 @@
+{
+  "name": "Out at the Fair\u00ae",
+  "short_name": "OATF",
+  "description": "Out at the Fair\u00ae \u2014 All Belong at the Fair. The next chapter arrives in 2027.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
+  "background_color": "#09060f",
+  "theme_color": "#09060f",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "California Fairs",
+      "short_name": "Fairs",
+      "url": "californiafairs/"
+    },
+    {
+      "name": "Our Story",
+      "short_name": "Story",
+      "url": "history/"
+    },
+    {
+      "name": "Photos",
+      "short_name": "Photos",
+      "url": "photos/"
+    }
+  ]
+}

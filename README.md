@@ -1,24 +1,23 @@
-# Out at the Fair — Version 5
+# Out at the Fair — V6 Mobile App Experience
 
-V5 combines the futuristic V3 design with a stronger authority, history and SEO foundation for the 2027 relaunch.
+This build expands V5 into a mobile-first Progressive Web App experience.
 
-## Added in V5
-- Rewritten SEO-focused homepage
-- Corrected headline spacing on desktop and mobile
-- New interactive California fair network
-- Documented milestone and impact sections
-- New `/history/`, `/about/`, and `/faq/` evergreen pages
-- Organization, WebSite, WebPage and FAQ structured data
-- Expanded sitemap and stronger metadata
-- Preserved every existing fair, photo, participation, pennant, giveaway and contact page
-- No `CNAME`, so this package remains safe for the GitHub staging URL
+## New in V6
+- Native-style fixed bottom navigation on phones
+- Slide-in mobile menu with blurred backdrop
+- iPhone/iPad safe-area support
+- Add-to-Home-Screen support
+- Standalone full-screen display mode
+- PWA manifest and service worker
+- Faster repeat visits through local caching
+- Touch-friendly 54px controls
+- Swipeable fair, feature, statistics and photo-link sections
+- Tablet layouts designed as a content canvas rather than enlarged phone pages
+- Desktop hover/tilt effects disabled on touch devices
+- Improved mobile headline sizing and spacing throughout
 
-## Still intentionally pending
-Images still load from the current Wix media CDN while design work is being approved. Before Wix is closed, migrate those images into `/assets/images/`, create responsive WebP versions and update the HTML/CSS references.
+## Preview safety
+There is no CNAME file. This remains safe for the `outatthefair_2` staging repository.
 
-
-## V5 spacing pass
-- Rebuilt homepage hero line breaks
-- Reduced oversized desktop headline scaling
-- Added consistent line-height and wrapping rules across every major heading
-- Tuned tablet and mobile typography separately
+## Important
+The design still references selected Wix-hosted images. Move those assets locally before closing Wix.
