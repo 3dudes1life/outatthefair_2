@@ -50,3 +50,12 @@ Because this release replaces the old service worker and removes many cached pat
 - Improved hamburger visibility while the drawer is open
 - Fixed service-worker registration for GitHub Pages project subfolders
 - Converted precache URLs to service-worker-scope-relative paths
+
+
+## V6.9.2
+- Restored the floating mobile navigation dock
+- Includes Home, Fairs, Story, Photos, and Join
+- Highlights the active section
+- Uses GitHub Pages-safe relative site-root detection
+- Hides automatically while the hamburger drawer is open
+- Preserves iPhone safe-area spacing

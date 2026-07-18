@@ -1,4 +1,4 @@
-const CACHE = 'oatf-v6.9.1';
+const CACHE = 'oatf-v6.9.2';
 const SCOPE = new URL(self.registration.scope);
 const CORE_PATHS = [
   '',

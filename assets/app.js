@@ -198,6 +198,43 @@
     });
   });
 
+
+
+  // --------------------------
+  // Mobile floating dock
+  // --------------------------
+  const mobileDock = document.createElement('nav');
+  mobileDock.className = 'mobile-dock';
+  mobileDock.setAttribute('aria-label', 'Mobile quick navigation');
+
+  const appScript = [...document.scripts].find(script => script.src.includes('/assets/app.js'));
+  const siteRoot = appScript ? new URL('../', appScript.src) : new URL('./', window.location.href);
+  const currentPath = window.location.pathname.replace(/\/index\.html$/, '/');
+
+  const dockItems = [
+    { icon:'⌂', label:'Home', path:'' },
+    { icon:'🎡', label:'Fairs', path:'californiafairs/' },
+    { icon:'✦', label:'Story', path:'history/' },
+    { icon:'▧', label:'Photos', path:'photos/' },
+    { icon:'＋', label:'Join', path:'participate/' }
+  ];
+
+  mobileDock.innerHTML = dockItems.map(item => {
+    const url = new URL(item.path, siteRoot);
+    const normalized = url.pathname.replace(/\/index\.html$/, '/');
+    const isHome = item.path === '';
+    const active = isHome
+      ? currentPath === normalized
+      : currentPath.startsWith(normalized);
+
+    return `<a href="${url.href}" class="${active ? 'active' : ''}" ${active ? 'aria-current="page"' : ''}>
+      <span aria-hidden="true">${item.icon}</span>
+      <b>${item.label}</b>
+    </a>`;
+  }).join('');
+
+  document.body.appendChild(mobileDock);
+
   // --------------------------
   // PWA service worker
   // --------------------------
