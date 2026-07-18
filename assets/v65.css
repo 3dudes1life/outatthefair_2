@@ -1,0 +1,129 @@
+/* OATF V6.5 — NETWORK CLARITY + MOBILE NAV FIX */
+
+/* Ensure mobile menu sits above its backdrop and remains readable */
+@media (max-width: 900px){
+  .site-header{
+    isolation:isolate;
+  }
+
+  .main-nav{
+    position:fixed!important;
+    z-index:1002!important;
+    top:0!important;
+    right:0!important;
+    bottom:0!important;
+    left:auto!important;
+    width:min(88vw,390px)!important;
+    max-width:390px!important;
+    padding:
+      calc(84px + env(safe-area-inset-top,0px))
+      22px
+      calc(28px + env(safe-area-inset-bottom,0px))!important;
+    background:
+      linear-gradient(180deg,rgba(20,13,28,.99),rgba(8,5,13,.995))!important;
+    color:#fff!important;
+    box-shadow:-28px 0 90px rgba(0,0,0,.66)!important;
+    backdrop-filter:blur(28px) saturate(1.18)!important;
+    -webkit-backdrop-filter:blur(28px) saturate(1.18)!important;
+    overflow-y:auto!important;
+  }
+
+  .main-nav::before{
+    content:"";
+    position:fixed;
+    z-index:-1;
+    inset:0 100% 0 auto;
+    width:100vw;
+    background:rgba(0,0,0,.64);
+    backdrop-filter:blur(3px);
+    -webkit-backdrop-filter:blur(3px);
+    pointer-events:none;
+  }
+
+  .main-nav[aria-hidden="false"]::before,
+  .main-nav.is-open::before,
+  body.nav-open .main-nav::before{
+    pointer-events:auto;
+  }
+
+  .nav-list,
+  .nav-list li,
+  .nav-list a,
+  .nav-list button{
+    position:relative;
+    z-index:2;
+  }
+
+  .nav-list{
+    display:grid!important;
+    gap:9px!important;
+  }
+
+  .nav-list a,
+  .nav-list button{
+    width:100%!important;
+    min-height:52px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    padding:14px 15px!important;
+    border-radius:15px!important;
+    color:#fff!important;
+    background:rgba(255,255,255,.055)!important;
+    border:1px solid rgba(255,255,255,.11)!important;
+    opacity:1!important;
+    text-shadow:none!important;
+  }
+
+  .nav-list a:hover,
+  .nav-list button:hover,
+  .nav-list a:focus-visible,
+  .nav-list button:focus-visible{
+    background:rgba(255,255,255,.11)!important;
+  }
+
+  .dropdown{
+    position:static!important;
+    display:grid;
+    gap:7px;
+    margin:7px 0 4px!important;
+    padding:8px!important;
+    background:rgba(255,255,255,.035)!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+    border-radius:14px!important;
+    box-shadow:none!important;
+  }
+
+  .dropdown a{
+    min-height:46px!important;
+    padding:12px 13px!important;
+    background:rgba(255,255,255,.035)!important;
+  }
+
+  .nav-toggle{
+    position:relative;
+    z-index:1004!important;
+  }
+
+  body.nav-open{
+    overflow:hidden;
+  }
+}
+
+/* Legacy transition card */
+.legacy-transition-card{
+  max-width:900px;
+  margin-top:28px;
+  background:
+    radial-gradient(circle at 14% 12%,rgba(112,92,255,.14),transparent 18rem),
+    linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+}
+.legacy-transition-card h3{
+  margin:0 0 12px;
+  font-size:clamp(2rem,4vw,3.5rem);
+  line-height:1;
+  letter-spacing:-.04em;
+}
+.legacy-transition-card p{
+  max-width:760px;
+}

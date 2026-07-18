@@ -1,21 +1,20 @@
-# Out at the Fair® V6.4
+# Out at the Fair® V6.5
 
-V6.4 is the California Network and mobile edge-polish release.
+V6.5 clarifies the current fair network and fixes the mobile navigation overlay.
 
-## New in V6.4
-- Fixed mobile cards whose text could reach the viewport edge
-- Unified 20px phone gutters across the site
-- Safer wrapping for long timeline headings and card copy
-- Rebuilt California Fairs page
-- Interactive California network map
-- Tap and hover fair information cards
-- Destination-style fair cards
-- Mobile swipeable California fair gallery
-- Current and legacy fair network storytelling
-- Fair pages upgraded with destination heroes and metadata
-- Subtle reveal animation for network content
-- V6.3 history and V6.2 loading/PWA systems preserved
-- Updated service-worker cache
+## New in V6.5
+- Removed Marin County Fair from the current California map
+- Removed Marin from current destination cards and navigation
+- Preserved Marin as a former OATF location in the history
+- Added a clear 2026 transition chapter
+- Added a legacy-only Marin page
+- Clarified that Marin turned the concept into its own independent Pride Day in 2026
+- Fixed the hamburger menu black overlay issue
+- Increased mobile navigation contrast
+- Ensured menu text remains fully visible
+- Improved mobile dropdown readability
+- Added outside-click and Escape-key menu closing
+- Preserved all V6.4 network, V6.3 history and V6.2 PWA systems
 
 ## Deployment
 Upload the contents of this ZIP directly to the root of the staging GitHub repository.
