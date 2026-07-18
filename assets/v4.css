@@ -10,3 +10,77 @@
 .faq-list{display:grid;gap:14px;margin-top:40px}.faq-list details{padding:22px 24px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.05)}.faq-list summary{cursor:pointer;font-family:Impact,sans-serif;font-size:1.35rem;text-transform:uppercase;letter-spacing:.03em}.faq-list p{color:var(--muted)}.seo-copy{max-width:900px}.seo-copy p{font-size:1.06rem;color:var(--muted)}
 @media(max-width:980px){.authority-grid{grid-template-columns:1fr 1fr}.story-grid{grid-template-columns:1fr}.impact-ledger{grid-template-columns:1fr}.network-map{min-height:620px}.node-riverside{left:8%;top:24%}.node-orange{right:8%;top:47%}.node-san-diego{left:25%;top:73%}.line-one,.line-two{display:none}.timeline-v4 article{grid-template-columns:90px 1fr}.timeline-v4 .tag{grid-column:2}}
 @media(max-width:760px){.display{font-size:clamp(3.8rem,18vw,6rem);line-height:1.05}.display .accent{margin-top:.18em}.authority-grid{grid-template-columns:1fr}.authority-strip{margin-top:-18px}.story-panel{padding:28px}.network-map{min-height:720px}.node{width:calc(100% - 44px);left:22px!important;right:auto!important}.node-riverside{top:18%}.node-orange{top:47%}.node-san-diego{top:75%}.timeline-v4 article{grid-template-columns:1fr;gap:8px}.timeline-v4 .tag{grid-column:auto}.page-hero h1{line-height:1.1}}
+
+
+/* V5 — headline rhythm and responsive spacing audit */
+:is(.display,.section-title,.page-hero h1,.cta h2,.story-panel h3,.quote-band blockquote,.fair-content h3,.feature h3,.timeline-v4 h3,.content-card h3,.role h3,.contact-card h2,.album-group h2,.award-band h3){
+  text-wrap:balance;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+}
+.display{
+  max-width:760px;
+  font-size:clamp(4.15rem,7.7vw,7.8rem);
+  line-height:1.1;
+  letter-spacing:.012em;
+}
+.display .line{display:block;margin:0 0 .025em}
+.display .accent{
+  display:block;
+  max-width:720px;
+  margin-top:.26em;
+  font-size:.68em;
+  line-height:1.13;
+  letter-spacing:.018em;
+}
+.display .accent>span{display:block}
+.hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr);gap:44px}
+.hero-copy{max-width:780px;padding-block:20px}
+.hero-copy>p:not(.eyebrow){margin:30px 0 32px}
+.section-title{
+  max-width:980px;
+  font-size:clamp(3rem,5.3vw,5.8rem);
+  line-height:1.12;
+  letter-spacing:.018em;
+}
+.page-hero h1{
+  max-width:940px;
+  font-size:clamp(3.8rem,7vw,7.4rem);
+  line-height:1.12;
+  letter-spacing:.018em;
+}
+.cta h2{line-height:1.1;max-width:900px}
+.story-panel h3,.quote-band blockquote{line-height:1.12}
+.fair-content h3,.feature h3,.timeline-v4 h3,.content-card h3,.role h3,.contact-card h2,.album-group h2,.award-band h3{line-height:1.14}
+
+@media(min-width:1500px){
+  .display{font-size:clamp(5rem,7.7vw,8.7rem);max-width:850px}
+  .display .accent{max-width:790px}
+  .hero-grid{grid-template-columns:minmax(0,1.12fr) minmax(430px,.88fr);gap:64px}
+}
+@media(max-width:1300px) and (min-width:981px){
+  .hero{padding-top:58px}
+  .hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(350px,.92fr);gap:32px}
+  .display{max-width:650px;font-size:clamp(4rem,7.2vw,6.6rem);line-height:1.11}
+  .display .accent{max-width:610px;font-size:.64em;margin-top:.3em;line-height:1.14}
+  .hero-visual{min-height:520px}
+  .photo-frame{inset:48px 0 28px 16px}
+  .section-title{font-size:clamp(3rem,5vw,5.2rem);line-height:1.13}
+  .page-hero h1{font-size:clamp(3.6rem,6.5vw,6.5rem);line-height:1.13}
+}
+@media(max-width:980px){
+  .hero-copy{padding-block:0}
+  .display{max-width:780px;font-size:clamp(4rem,11vw,7rem)}
+  .display .accent{max-width:720px;font-size:.65em}
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+}
+@media(max-width:760px){
+  .display{font-size:clamp(3.35rem,16vw,5.35rem);line-height:1.1;letter-spacing:.008em}
+  .display .line{margin-bottom:.04em}
+  .display .accent{font-size:.62em;line-height:1.16;margin-top:.34em}
+  .section-title{font-size:clamp(2.75rem,13vw,4.6rem);line-height:1.14}
+  .page-hero h1{font-size:clamp(3.05rem,15vw,5.3rem);line-height:1.15}
+  .cta h2{line-height:1.12}
+  .story-panel h3,.quote-band blockquote{line-height:1.15}
+}
