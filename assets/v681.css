@@ -1,0 +1,72 @@
+/* OATF V6.8.1 — definitive mobile navigation fix */
+
+@media (max-width:900px){
+  .main-nav{
+    z-index:5002!important;
+    filter:none!important;
+    opacity:1!important;
+    visibility:visible!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+
+  .mobile-nav-backdrop{
+    z-index:5000!important;
+  }
+
+  .nav-toggle{
+    z-index:5004!important;
+  }
+
+  body.nav-open .main-nav{
+    transform:translateX(0)!important;
+    pointer-events:auto!important;
+  }
+
+  body:not(.nav-open) .main-nav{
+    transform:translateX(110%)!important;
+    pointer-events:none!important;
+  }
+
+  .main-nav *,
+  .nav-list *,
+  .dropdown *{
+    filter:none!important;
+    opacity:1!important;
+  }
+
+  .nav-list li.has-mobile-submenu > .dropdown,
+  .nav-list li.has-mobile-submenu > .sub-menu,
+  .nav-list li.has-mobile-submenu > .submenu{
+    display:none!important;
+  }
+
+  .nav-list li.has-mobile-submenu.submenu-open > .dropdown,
+  .nav-list li.has-mobile-submenu.submenu-open > .sub-menu,
+  .nav-list li.has-mobile-submenu.submenu-open > .submenu{
+    display:grid!important;
+  }
+
+  .nav-list li.has-mobile-submenu > a::after,
+  .nav-list li.has-mobile-submenu > button::after{
+    content:"⌄";
+    margin-left:auto;
+    font-size:1rem;
+    transition:transform .2s ease;
+  }
+
+  .nav-list li.has-mobile-submenu.submenu-open > a::after,
+  .nav-list li.has-mobile-submenu.submenu-open > button::after{
+    transform:rotate(180deg);
+  }
+
+  .dropdown,
+  .sub-menu,
+  .submenu{
+    position:static!important;
+    visibility:visible!important;
+    opacity:1!important;
+    transform:none!important;
+    pointer-events:auto!important;
+  }
+}

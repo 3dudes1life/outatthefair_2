@@ -37,3 +37,13 @@ After deployment, open:
 It should display:
 
 `importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");`
+
+
+## V6.8.1 mobile navigation hotfix
+- Removed conflicting legacy click listeners by replacing the mobile nav controls at runtime
+- California Fairs now opens as a persistent mobile submenu
+- The drawer remains open until a specific fair is selected
+- Only destination links close the drawer
+- Backdrop is forced behind the drawer
+- Menu text remains fully visible and clickable
+- OneSignal code remains installed but dashboard setup may be completed later
