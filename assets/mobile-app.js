@@ -1,31 +1,4 @@
 (() => {
-  const body=document.body;
-  const nav=document.querySelector('.main-nav');
-  const toggle=document.querySelector('.nav-toggle');
-
-  // Backdrop for the slide-in mobile navigation
-  if(nav && toggle){
-    const backdrop=document.createElement('div');
-    backdrop.className='mobile-menu-backdrop';
-    document.body.appendChild(backdrop);
-    const sync=()=>{
-      const open=nav.classList.contains('open');
-      body.classList.toggle('menu-open',open);
-      toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
-    };
-    toggle.addEventListener('click',()=>requestAnimationFrame(sync));
-    backdrop.addEventListener('click',()=>{
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded','false');
-      toggle.textContent='☰';
-      sync();
-    });
-    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-      nav.classList.remove('open');
-      body.classList.remove('menu-open');
-    }));
-  }
-
   // Add native-style tab bar on phone
   const path=location.pathname.replace(/\/index\.html$/,'/');
   const root = path.includes('/outatthefair_2/') ? '/outatthefair_2/' : (() => {

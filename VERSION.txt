@@ -1,3 +1,3 @@
 Out at the Fair® Website
-Version: 6.8.1
-Release: Mobile Navigation Hotfix
+Version: 6.8.2
+Release: Single Mobile Navigation System
