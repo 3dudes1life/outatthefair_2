@@ -41,3 +41,12 @@ ONESIGNAL_ENABLED: true
 Upload the contents of this ZIP to the repository root.
 
 Because this release replaces the old service worker and removes many cached patch files, test once in a private window or clear website data after deployment.
+
+
+## V6.9.1 hotfix
+- Corrected the mobile menu stacking context
+- Header and menu now render above the blurred backdrop
+- Forced full menu text/button visibility in mobile Safari
+- Improved hamburger visibility while the drawer is open
+- Fixed service-worker registration for GitHub Pages project subfolders
+- Converted precache URLs to service-worker-scope-relative paths

@@ -204,7 +204,13 @@
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', async () => {
       try {
-        const registration = await navigator.serviceWorker.register('/sw.js');
+        const appScript = [...document.scripts].find(script => script.src.includes('/assets/app.js'));
+        const siteRoot = appScript
+          ? new URL('../', appScript.src)
+          : new URL('./', window.location.href);
+        const registration = await navigator.serviceWorker.register(
+          new URL('sw.js', siteRoot).pathname
+        );
         registration.update().catch(() => {});
       } catch (_) {}
     });

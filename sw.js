@@ -1,21 +1,23 @@
-const CACHE = 'oatf-v6.9';
-const CORE = [
-  '/',
-  '/index.html',
-  '/404.html',
-  '/manifest.webmanifest',
-  '/assets/app.css',
-  '/assets/app.js',
-  '/assets/favicon.svg',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png',
-  '/assets/icons/apple-touch-icon.png',
-  '/assets/images/oatf-logo-fallback.svg',
-  '/assets/images/hero-fallback.svg',
-  '/assets/images/riverside-fallback.svg',
-  '/assets/images/sandiego-fallback.svg',
-  '/assets/images/orangecounty-fallback.svg'
+const CACHE = 'oatf-v6.9.1';
+const SCOPE = new URL(self.registration.scope);
+const CORE_PATHS = [
+  '',
+  'index.html',
+  '404.html',
+  'manifest.webmanifest',
+  'assets/app.css',
+  'assets/app.js',
+  'assets/favicon.svg',
+  'assets/icons/icon-192.png',
+  'assets/icons/icon-512.png',
+  'assets/icons/apple-touch-icon.png',
+  'assets/images/oatf-logo-fallback.svg',
+  'assets/images/hero-fallback.svg',
+  'assets/images/riverside-fallback.svg',
+  'assets/images/sandiego-fallback.svg',
+  'assets/images/orangecounty-fallback.svg'
 ];
+const CORE = CORE_PATHS.map(path => new URL(path, SCOPE).href);
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -48,7 +50,8 @@ self.addEventListener('fetch', event => {
           return response;
         })
         .catch(async () => {
-          return (await caches.match(request)) || caches.match('/404.html');
+          return (await caches.match(request)) ||
+            caches.match(new URL('404.html', SCOPE).href);
         })
     );
     return;
