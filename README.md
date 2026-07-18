@@ -1,17 +1,17 @@
-# Out at the Fair — Version 3 Concept
+# Out at the Fair — Version 4
 
-This is a design-preview build for the `outatthefair_2` GitHub Pages staging repository.
+V4 combines the futuristic V3 design with a stronger authority, history and SEO foundation for the 2027 relaunch.
 
-## Changes from V2
-- New high-tech 2027 hero experience
-- More breathing room in every large headline
-- New dark/glass visual system shared by all interior pages
-- Interactive fair cards and cursor-reactive hero lighting
-- Moving signal marquee, stats and historical timeline
-- Motion respects `prefers-reduced-motion`
-- No `CNAME` file, so this preview will not take over the live Wix domain
+## Added in V4
+- Rewritten SEO-focused homepage
+- Corrected headline spacing on desktop and mobile
+- New interactive California fair network
+- Documented milestone and impact sections
+- New `/history/`, `/about/`, and `/faq/` evergreen pages
+- Organization, WebSite, WebPage and FAQ structured data
+- Expanded sitemap and stronger metadata
+- Preserved every existing fair, photo, participation, pennant, giveaway and contact page
+- No `CNAME`, so this package remains safe for the GitHub staging URL
 
-## Upload
-Delete the existing repository files and upload the contents of this folder to the root of `outatthefair_2`.
-
-Images are still referencing Wix for fast design iteration. Local asset migration and performance optimization should happen after the visual direction is approved.
+## Still intentionally pending
+Images still load from the current Wix media CDN while design work is being approved. Before Wix is closed, migrate those images into `/assets/images/`, create responsive WebP versions and update the HTML/CSS references.
