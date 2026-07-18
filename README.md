@@ -1,23 +1,17 @@
-# Out at the Fair — V6 Mobile App Experience
+# Out at the Fair V6.1
 
-This build expands V5 into a mobile-first Progressive Web App experience.
+V6.1 is the first Road to V7 milestone. It rebuilds the homepage as a cinematic, mobile-first OATF experience while preserving the complete existing site and PWA foundation.
 
-## New in V6
-- Native-style fixed bottom navigation on phones
-- Slide-in mobile menu with blurred backdrop
-- iPhone/iPad safe-area support
-- Add-to-Home-Screen support
-- Standalone full-screen display mode
-- PWA manifest and service worker
-- Faster repeat visits through local caching
-- Touch-friendly 54px controls
-- Swipeable fair, feature, statistics and photo-link sections
-- Tablet layouts designed as a content canvas rather than enlarged phone pages
-- Desktop hover/tilt effects disabled on touch devices
-- Improved mobile headline sizing and spacing throughout
+## V6.1 highlights
+- New immersive homepage hero
+- Apple-inspired spacing and editorial hierarchy
+- OATF branded glow, color and glass language
+- Mobile swipe fair rail
+- Rebuilt experience, network, legacy, participation and final CTA sections
+- Touch-first controls and responsive layouts
+- Reduced-motion support
+- Existing interior pages remain intact
+- Existing installable PWA behavior remains intact
 
-## Preview safety
-There is no CNAME file. This remains safe for the `outatthefair_2` staging repository.
-
-## Important
-The design still references selected Wix-hosted images. Move those assets locally before closing Wix.
+## Release path
+V6.1 Homepage → V6.2 Interior pages → V6.3 History → V6.4 Fair network → V6.5 Archive → V6.6 Performance/SEO → V7 Launch Edition

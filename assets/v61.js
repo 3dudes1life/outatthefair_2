@@ -1,0 +1,1 @@
+(() => { document.documentElement.dataset.oatfVersion='6.1'; const rail=document.querySelector('.v61-fair-rail'); if(rail && matchMedia('(pointer:coarse)').matches){rail.setAttribute('tabindex','0');} })();
