@@ -1,0 +1,289 @@
+/* OATF V6.3 — IMMERSIVE LEGACY + AUTHORITY */
+:root{
+  --legacy-pink:#ff3d8d;
+  --legacy-orange:#ff8a38;
+  --legacy-gold:#ffe260;
+  --legacy-teal:#36d9c9;
+  --legacy-violet:#705cff;
+}
+.legacy-hero{
+  min-height:min(88vh,920px);
+  display:flex;
+  align-items:flex-end;
+  position:relative;
+  isolation:isolate;
+  padding:clamp(120px,16vw,200px) 0 clamp(72px,9vw,118px);
+  overflow:hidden;
+}
+.legacy-hero::before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:
+    linear-gradient(180deg,rgba(9,6,15,.18),rgba(9,6,15,.93)),
+    radial-gradient(circle at 24% 28%,rgba(255,61,141,.31),transparent 25rem),
+    radial-gradient(circle at 78% 18%,rgba(54,217,201,.18),transparent 28rem),
+    radial-gradient(circle at 60% 80%,rgba(112,92,255,.15),transparent 26rem);
+}
+.legacy-hero::after{
+  content:"2011 — 2027";
+  position:absolute;z-index:-2;
+  right:-.04em;bottom:-.18em;
+  font-size:clamp(8rem,23vw,23rem);
+  line-height:1;
+  font-weight:950;
+  letter-spacing:-.09em;
+  color:rgba(255,255,255,.035);
+  white-space:nowrap;
+}
+.legacy-hero h1{
+  margin:.28em 0 .25em;
+  max-width:1100px;
+  font-size:clamp(4rem,9.2vw,9rem);
+  line-height:.91;
+  letter-spacing:-.055em;
+  text-wrap:balance;
+}
+.legacy-hero .lede{
+  max-width:760px;
+  font-size:clamp(1.05rem,1.65vw,1.35rem);
+}
+.legacy-intro{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
+  gap:clamp(30px,6vw,90px);
+  align-items:start;
+}
+.legacy-intro-copy p{
+  font-size:clamp(1.08rem,1.45vw,1.26rem);
+  line-height:1.78;
+}
+.legacy-manifesto{
+  position:sticky;top:110px;
+  padding:28px;
+  border:1px solid var(--oatf-border);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 15% 12%,rgba(255,61,141,.16),transparent 16rem),
+    linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+  box-shadow:var(--oatf-shadow);
+}
+.legacy-manifesto strong{
+  display:block;
+  font-size:clamp(2.15rem,4vw,3.8rem);
+  line-height:1;
+  letter-spacing:-.045em;
+  margin:.18em 0;
+}
+.legacy-manifesto p{color:var(--oatf-muted)}
+.legacy-shell{
+  display:grid;
+  grid-template-columns:170px minmax(0,1fr);
+  gap:clamp(32px,6vw,88px);
+  align-items:start;
+}
+.legacy-nav{
+  position:sticky;top:110px;
+  display:grid;gap:7px;
+}
+.legacy-nav a{
+  min-height:43px;
+  display:flex;align-items:center;gap:10px;
+  padding:8px 11px;
+  border-radius:13px;
+  color:#978b9c;
+  font-weight:850;
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:.22s ease;
+}
+.legacy-nav a::before{
+  content:"";
+  width:7px;height:7px;border-radius:50%;
+  background:currentColor;
+  box-shadow:0 0 0 0 rgba(255,255,255,0);
+}
+.legacy-nav a.active{
+  color:#fff;
+  background:rgba(255,255,255,.075);
+}
+.legacy-nav a.active::before{
+  background:var(--legacy-gold);
+  box-shadow:0 0 18px var(--legacy-gold);
+}
+.legacy-timeline{
+  position:relative;
+  display:grid;
+  gap:24px;
+}
+.legacy-timeline::before{
+  content:"";position:absolute;
+  left:53px;top:48px;bottom:48px;width:2px;
+  background:linear-gradient(var(--legacy-pink),var(--legacy-orange),var(--legacy-gold),var(--legacy-teal),var(--legacy-violet));
+  opacity:.48;
+}
+.legacy-era{
+  min-height:440px;
+  display:grid;
+  grid-template-columns:110px minmax(0,1fr);
+  gap:28px;
+  padding:clamp(28px,5vw,58px);
+  border:1px solid var(--oatf-border);
+  border-radius:32px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.072),rgba(255,255,255,.022));
+  box-shadow:0 25px 80px rgba(0,0,0,.22);
+  scroll-margin-top:110px;
+  position:relative;
+  overflow:hidden;
+}
+.legacy-era::after{
+  content:"";position:absolute;inset:auto -120px -150px auto;
+  width:360px;height:360px;border-radius:50%;
+  background:var(--era-glow,var(--legacy-pink));
+  filter:blur(100px);opacity:.12;pointer-events:none;
+}
+.legacy-year{
+  position:relative;z-index:2;
+  width:106px;height:106px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.22);
+  background:#100918;
+  font-size:1.55rem;
+  font-weight:950;
+  letter-spacing:-.04em;
+  box-shadow:0 0 0 9px #09060f,0 0 38px rgba(255,255,255,.09);
+}
+.legacy-copy{align-self:center;position:relative;z-index:1}
+.legacy-copy .tag{display:inline-flex;margin-bottom:18px}
+.legacy-copy h2{
+  margin:0 0 18px;
+  font-size:clamp(2.7rem,5.4vw,5.8rem);
+  line-height:.97;
+  letter-spacing:-.05em;
+  text-wrap:balance;
+}
+.legacy-copy p{
+  max-width:780px;
+  font-size:clamp(1rem,1.45vw,1.22rem);
+  line-height:1.72;
+}
+.legacy-points{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.legacy-point{
+  padding:17px;
+  min-height:120px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.035);
+}
+.legacy-point strong{
+  display:block;font-size:1rem;margin-bottom:6px
+}
+.legacy-point span{
+  color:var(--oatf-muted);font-size:.86rem;line-height:1.5
+}
+.legacy-quote{
+  padding:clamp(38px,7vw,90px);
+  border-radius:34px;
+  border:1px solid var(--oatf-border);
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 0,rgba(255,226,96,.12),transparent 24rem),
+    linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+}
+.legacy-quote blockquote{
+  margin:0 auto;
+  max-width:980px;
+  font-size:clamp(2.5rem,5.5vw,6rem);
+  line-height:1.02;
+  letter-spacing:-.05em;
+  font-weight:900;
+  text-wrap:balance;
+}
+.legacy-quote p{margin:24px auto 0;max-width:700px;color:var(--oatf-muted)}
+.authority-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:20px
+}
+.authority-card{
+  padding:clamp(26px,4vw,46px);
+  border:1px solid var(--oatf-border);
+  border-radius:28px;
+  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+}
+.authority-card.primary{
+  background:
+    radial-gradient(circle at 20% 10%,rgba(255,226,96,.14),transparent 20rem),
+    linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+}
+.authority-card .big-number{
+  display:block;
+  font-size:clamp(4rem,8vw,8rem);
+  line-height:.9;
+  font-weight:950;
+  letter-spacing:-.07em;
+  background:linear-gradient(90deg,var(--legacy-pink),var(--legacy-orange),var(--legacy-gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.authority-card h3{
+  font-size:clamp(1.8rem,3vw,3rem);line-height:1.05;margin:18px 0 12px
+}
+.authority-card p{color:var(--oatf-muted)}
+.legacy-progress{
+  position:fixed;z-index:360;left:0;top:0;height:3px;width:0;
+  background:linear-gradient(90deg,var(--legacy-pink),var(--legacy-orange),var(--legacy-gold),var(--legacy-teal),var(--legacy-violet));
+  box-shadow:0 0 18px rgba(255,61,141,.75);
+  pointer-events:none;
+}
+@media(max-width:900px){
+  .legacy-intro,.authority-grid{grid-template-columns:1fr}
+  .legacy-manifesto{position:relative;top:auto}
+  .legacy-shell{grid-template-columns:1fr}
+  .legacy-nav{
+    position:sticky;top:calc(70px + var(--safe-top));
+    z-index:40;
+    display:flex;overflow-x:auto;
+    padding:10px 0;
+    background:rgba(9,6,15,.9);
+    backdrop-filter:blur(18px);
+    scrollbar-width:none
+  }
+  .legacy-nav::-webkit-scrollbar{display:none}
+  .legacy-nav a{flex:0 0 auto}
+}
+@media(max-width:760px){
+  .legacy-hero{
+    min-height:auto;
+    padding:58px 0 72px;
+  }
+  .legacy-hero::after{font-size:8rem;bottom:-.05em}
+  .legacy-hero h1{
+    font-size:clamp(3.45rem,16vw,5.4rem);
+    line-height:.95
+  }
+  .legacy-era{
+    min-height:auto;
+    grid-template-columns:1fr;
+    gap:18px;
+    padding:24px;
+    border-radius:24px
+  }
+  .legacy-timeline::before{display:none}
+  .legacy-year{
+    width:82px;height:82px;font-size:1.25rem;
+    box-shadow:0 0 0 7px #09060f,0 0 28px rgba(255,255,255,.08)
+  }
+  .legacy-copy h2{font-size:clamp(2.55rem,12vw,4rem)}
+  .legacy-points{
+    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
+    margin-inline:-24px;padding-inline:24px;
+    scrollbar-width:none
+  }
+  .legacy-points::-webkit-scrollbar{display:none}
+  .legacy-point{flex:0 0 78%;scroll-snap-align:start}
+  .legacy-quote{border-radius:24px}
+}
