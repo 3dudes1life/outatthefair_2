@@ -1,0 +1,224 @@
+/* OATF V6.6 — EQUAL DESTINATIONS + PERFORMANCE / ACCESSIBILITY POLISH */
+
+:root{
+  --focus-ring:#ffe260;
+  --surface-outline:rgba(255,255,255,.13);
+}
+
+/* Equal destination presentation: no horizontal swipe, no hidden cards */
+.network-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:20px!important;
+  overflow:visible!important;
+  margin-inline:0!important;
+  padding-inline:0!important;
+}
+
+.network-card{
+  width:100%!important;
+  min-width:0!important;
+  min-height:500px!important;
+  flex:none!important;
+  scroll-snap-align:none!important;
+}
+
+.network-card-content{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  min-height:100%;
+}
+
+.network-card-content p{
+  flex-grow:1;
+}
+
+.network-equal-note{
+  max-width:760px;
+  margin:-6px 0 30px;
+  color:var(--oatf-muted);
+  font-size:clamp(.98rem,1.4vw,1.16rem);
+  line-height:1.7;
+}
+
+.history-note-card{
+  max-width:900px;
+  padding:clamp(24px,4vw,42px);
+  border:1px solid var(--oatf-border);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 14% 12%,rgba(112,92,255,.13),transparent 18rem),
+    linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+}
+
+.history-note-card h3{
+  margin:0 0 12px;
+  font-size:clamp(2rem,4vw,3.5rem);
+  line-height:1;
+  letter-spacing:-.04em;
+}
+
+.history-note-card p{
+  max-width:760px;
+}
+
+/* Consistent readable line lengths */
+main p{
+  text-wrap:pretty;
+}
+
+.section-title,
+.page-hero h1,
+.network-hero h1,
+.destination-hero h1,
+.legacy-copy h2{
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+}
+
+/* Accessible focus states */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible{
+  outline:3px solid var(--focus-ring)!important;
+  outline-offset:4px!important;
+  box-shadow:none!important;
+}
+
+/* Improve tap size across mobile and desktop */
+a.button,
+.nav-list a,
+.nav-list button,
+.network-chip,
+.text-link{
+  min-height:44px;
+}
+
+/* Prevent accidental content overflow */
+img,
+svg,
+video,
+iframe{
+  max-width:100%;
+}
+
+article,
+section,
+div{
+  min-width:0;
+}
+
+/* Better table / code fallback on small screens */
+table{
+  display:block;
+  max-width:100%;
+  overflow-x:auto;
+}
+
+/* Cleaner lazy image presentation */
+img[loading="lazy"]{
+  content-visibility:auto;
+}
+
+/* Footer and section stability */
+.site-footer,
+.section,
+.cta{
+  contain:layout paint;
+}
+
+/* Reduce rendering cost on long pages while preserving accessibility */
+.legacy-era,
+.network-card,
+.destination-panel,
+.story-panel,
+.impact-card,
+.feature,
+.content-card,
+.contact-card,
+.role,
+.pennant,
+.album-group{
+  content-visibility:auto;
+  contain-intrinsic-size:1px 520px;
+}
+
+/* Skip-link improvement */
+.skip-link{
+  position:fixed;
+  z-index:10000;
+  top:10px;
+  left:10px;
+  transform:translateY(-180%);
+  padding:12px 16px;
+  border-radius:12px;
+  background:#fff;
+  color:#09060f;
+  font-weight:900;
+  transition:transform .2s ease;
+}
+
+.skip-link:focus{
+  transform:translateY(0);
+}
+
+/* Active destination / current page clarity */
+[aria-current="page"]{
+  font-weight:900!important;
+}
+
+/* Better contrast for muted copy */
+:root{
+  --oatf-muted:#c9becd;
+}
+
+/* Responsive equal card system */
+@media(max-width:1000px){
+  .network-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+
+@media(max-width:700px){
+  .network-grid{
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+  }
+
+  .network-card{
+    min-height:460px!important;
+  }
+
+  .network-card-content{
+    padding:24px!important;
+  }
+
+  .network-card h3{
+    font-size:clamp(2.25rem,11vw,3.4rem);
+  }
+
+  .network-equal-note{
+    margin-top:-4px;
+  }
+
+  .history-note-card{
+    padding:22px;
+    border-radius:22px;
+  }
+}
+
+/* Respect reduced motion everywhere */
+@media(prefers-reduced-motion:reduce){
+  html{
+    scroll-behavior:auto!important;
+  }
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+  }
+}
