@@ -1,9 +1,9 @@
-const CACHE='oatf-v6.3';
+const CACHE='oatf-v6.4';
 const SCOPE=new URL(self.registration.scope);
 const paths=[
   '', 'index.html','404.html','manifest.webmanifest',
-  'assets/styles.css','assets/v4.css','assets/mobile-app.css','assets/v61.css','assets/v62.css','assets/v63.css',
-  'assets/site.js','assets/mobile-app.js','assets/v61.js','assets/v62.js','assets/v63.js','assets/favicon.svg',
+  'assets/styles.css','assets/v4.css','assets/mobile-app.css','assets/v61.css','assets/v62.css','assets/v63.css','assets/v64.css',
+  'assets/site.js','assets/mobile-app.js','assets/v61.js','assets/v62.js','assets/v63.js','assets/v64.js','assets/favicon.svg',
   'assets/icons/icon-192.png','assets/icons/icon-512.png','assets/icons/apple-touch-icon.png',
   'assets/images/oatf-logo-fallback.svg','assets/images/hero-fallback.svg',
   'assets/images/riverside-fallback.svg','assets/images/sandiego-fallback.svg',
