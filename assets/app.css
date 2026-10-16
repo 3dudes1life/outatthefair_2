@@ -2676,6 +2676,9 @@ summary:focus-visible,
   display:none;
 }
 
+/* Signup buttons stay out of the public experience until a verified URL is configured. */
+body:not(.signup-ready) [data-email-signup]{display:none!important}
+
 @media(max-width:760px){
   body{
     padding-bottom:calc(92px + var(--safe-bottom))!important;
@@ -2689,7 +2692,7 @@ summary:focus-visible,
     bottom:calc(10px + var(--safe-bottom));
     min-height:68px;
     display:grid;
-    grid-template-columns:repeat(5,minmax(0,1fr));
+    grid-template-columns:repeat(4,minmax(0,1fr));
     gap:4px;
     padding:7px;
     border:1px solid rgba(255,255,255,.16);

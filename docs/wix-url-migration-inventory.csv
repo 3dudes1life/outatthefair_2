@@ -1,0 +1,20 @@
+legacy_wix_url,target_url,handling,reason
+/,/,native GitHub Pages page,Homepage remains the canonical destination
+/locations,/locations/,native GitHub Pages page,New first-class locations hub
+/riversidecountyfair,/riversidecountyfair/,native GitHub Pages page,Reuse the prospective Riverside landing page
+/sdfair,/sdfair/,native GitHub Pages page,Reuse the San Diego landing page
+/orangecountyfair,/orangecountyfair/,native GitHub Pages page,Reuse the Orange County landing page
+/partner,/contact/,Cloudflare 301,Historical sponsorship path now routes to Contact
+/participate,/participate/,native GitHub Pages page,Permanent future application entry point
+/nonprofit,/participate/,Cloudflare 301,Future nonprofit route is consolidated into Participate for now
+/alaskastatefair,/locations/,Cloudflare 301,Legacy fair path consolidated into locations
+/solanocountyfair,/locations/,Cloudflare 301,Legacy fair path consolidated into locations
+/alamedacountyfair,/locations/,Cloudflare 301,Legacy fair path consolidated into locations
+/marincountyfair,/locations/,Cloudflare 301,Legacy fair path consolidated into locations
+/californiastatefair,/locations/,Cloudflare 301,Legacy fair path consolidated into locations
+/sonomacountyfair,/locations/,Cloudflare 301,Legacy fair path consolidated into locations
+/montereycountyfair,/locations/,Cloudflare 301,Legacy fair path consolidated into locations
+/washingtoncountyfair,/locations/,Cloudflare 301,Legacy fair path consolidated into locations
+/newmexicostatefair,/locations/,Cloudflare 301,Legacy fair path consolidated into locations
+/shop,/,Cloudflare 301,Temporary home redirect
+/giveaways,/,Cloudflare 301,Temporary home redirect

@@ -14,11 +14,37 @@
   const nav = document.querySelector('.main-nav');
   const toggle = document.querySelector('.nav-toggle');
   const mobileMQ = window.matchMedia('(max-width: 900px)');
+  const appScript = [...document.scripts].find(script => script.src.includes('/assets/app.js'));
+  // Resolve from the script rather than from the page so this works both at a
+  // custom domain and in a GitHub Pages project subdirectory.
+  const siteRoot = appScript ? new URL('../', appScript.src) : new URL('./', window.location.href);
+  const currentPath = window.location.pathname.replace(/\/index\.html$/, '/');
+  const navURL = path => new URL(path, siteRoot);
+  const navActive = path => {
+    const target = navURL(path).pathname.replace(/\/index\.html$/, '/');
+    return path === '' ? currentPath === target : currentPath.startsWith(target);
+  };
 
   // --------------------------
   // Single navigation system
   // --------------------------
   if (nav && toggle) {
+    // Keep the primary navigation intentionally small. Older routes remain
+    // available by direct link and in the footer, so existing URLs are not
+    // broken during the Wix-to-GitHub Pages transition.
+    const navList = nav.querySelector('.nav-list');
+    if (navList) {
+      const link = (label, path) => {
+        const active = navActive(path) ? ' aria-current="page"' : '';
+        return `<li><a href="${navURL(path).href}"${active}>${label}</a></li>`;
+      };
+      navList.innerHTML = [
+        link('Home', ''),
+        `<li class="has-dropdown"><button type="button">Fairs <span aria-hidden="true">⌄</span></button><div class="dropdown"><a href="${navURL('locations/').href}">All locations</a><a href="${navURL('riversidecountyfair/').href}">Riverside County</a><a href="${navURL('sdfair/').href}">San Diego County</a><a href="${navURL('orangecountyfair/').href}">Orange County</a></div></li>`,
+        link('Our Story', 'history/'),
+        link('Contact', 'contact/')
+      ].join('');
+    }
     document.querySelectorAll('.mobile-menu-backdrop,.mobile-nav-backdrop,.oatf-nav-backdrop')
       .forEach(el => el.remove());
 
@@ -71,7 +97,6 @@
       control.setAttribute('aria-expanded', 'false');
 
       control.addEventListener('click', event => {
-        if (!mobileMQ.matches) return;
         event.preventDefault();
 
         const opening = !li.classList.contains('submenu-open');
@@ -87,6 +112,10 @@
         li.classList.toggle('submenu-open', opening);
         control.setAttribute('aria-expanded', String(opening));
       });
+    });
+
+    document.addEventListener('click', event => {
+      if (!nav.contains(event.target) && !toggle.contains(event.target)) closeSubmenus();
     });
 
     nav.querySelectorAll('li:not(.has-dropdown) > a,.dropdown a').forEach(link => {
@@ -157,6 +186,10 @@
   // --------------------------
   // Email signup modal
   // --------------------------
+  const signupEnabled = Boolean(CONFIG.WIX_SIGNUP_URL.trim());
+  if (signupEnabled) body.classList.add('signup-ready');
+  else document.querySelectorAll('[data-email-signup]').forEach(button => button.remove());
+
   const modal = document.createElement('div');
   modal.className = 'email-signup-modal';
   modal.setAttribute('role', 'dialog');
@@ -207,16 +240,11 @@
   mobileDock.className = 'mobile-dock';
   mobileDock.setAttribute('aria-label', 'Mobile quick navigation');
 
-  const appScript = [...document.scripts].find(script => script.src.includes('/assets/app.js'));
-  const siteRoot = appScript ? new URL('../', appScript.src) : new URL('./', window.location.href);
-  const currentPath = window.location.pathname.replace(/\/index\.html$/, '/');
-
   const dockItems = [
     { icon:'⌂', label:'Home', path:'' },
-    { icon:'🎡', label:'Fairs', path:'californiafairs/' },
+    { icon:'🎡', label:'Fairs', path:'locations/' },
     { icon:'✦', label:'Story', path:'history/' },
-    { icon:'▧', label:'Photos', path:'photos/' },
-    { icon:'＋', label:'Join', path:'participate/' }
+    { icon:'✉', label:'Contact', path:'contact/' }
   ];
 
   mobileDock.innerHTML = dockItems.map(item => {
