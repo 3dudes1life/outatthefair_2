@@ -41,9 +41,15 @@
         const active = navActive(path) ? ' aria-current="page"' : '';
         return `<li><a href="${navURL(path).href}"${active}>${label}</a></li>`;
       };
+      const fairsActive = [
+        'locations/',
+        'riversidecountyfair/',
+        'sdfair/',
+        'orangecountyfair/'
+      ].some(navActive);
       navList.innerHTML = [
         link('Home', ''),
-        `<li class="has-dropdown"><button type="button">Fairs <span aria-hidden="true">⌄</span></button><div class="dropdown"><a href="${navURL('locations/').href}">All locations</a><a href="${navURL('riversidecountyfair/').href}">Riverside County</a><a href="${navURL('sdfair/').href}">San Diego County</a><a href="${navURL('orangecountyfair/').href}">Orange County</a></div></li>`,
+        `<li class="has-dropdown${fairsActive ? ' is-current-section' : ''}"><button type="button">Fairs <span aria-hidden="true">⌄</span></button><div class="dropdown"><a href="${navURL('locations/').href}">All locations</a><a href="${navURL('riversidecountyfair/').href}">Riverside County</a><a href="${navURL('sdfair/').href}">San Diego County</a><a href="${navURL('orangecountyfair/').href}">Orange County</a></div></li>`,
         link('Our Story', 'history/'),
         link('Contact', 'contact/')
       ].join('');
