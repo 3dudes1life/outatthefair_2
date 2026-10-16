@@ -2857,3 +2857,22 @@ body:not(.signup-ready) [data-email-signup]{display:none!important}
 @media(max-width:360px){
   .v61-fair-card.sandiego h3{font-size:3.15rem}
 }
+
+/* V3.0.3 desktop Fairs menu: bridge the visual gap and use JS open states. */
+@media(min-width:901px){
+  .nav-list > li.has-dropdown > .dropdown{
+    display:none;
+  }
+  .nav-list > li.has-dropdown > .dropdown::before{
+    content:"";
+    position:absolute;
+    top:-10px;
+    left:0;
+    right:0;
+    height:10px;
+  }
+  .nav-list > li.has-dropdown.submenu-hover > .dropdown,
+  .nav-list > li.has-dropdown.submenu-open > .dropdown{
+    display:block;
+  }
+}

@@ -5,9 +5,10 @@
   "description": "Out at the Fair® mobile-first PWA and Capacitor app foundation.",
   "scripts": {
     "serve": "npx serve www -l 4173",
-    "verify": "npm run verify:site && npm run verify:ui",
+    "verify": "npm run verify:site && npm run verify:ui && npm run verify:dropdown",
     "verify:site": "node scripts/verify-site.mjs",
     "verify:ui": "node scripts/verify-ui.mjs",
+    "verify:dropdown": "node scripts/verify-dropdown-playwright.mjs",
     "cap:init": "npx cap init 'Out at the Fair' 'com.outatinc.outatthefair' --web-dir www",
     "cap:add:ios": "npx cap add ios",
     "cap:add:android": "npx cap add android",

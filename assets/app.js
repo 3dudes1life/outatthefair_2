@@ -63,8 +63,9 @@
     document.body.appendChild(backdrop);
 
     const closeSubmenus = () => {
-      nav.querySelectorAll('.submenu-open').forEach(li => {
+      nav.querySelectorAll('.submenu-open,.submenu-hover').forEach(li => {
         li.classList.remove('submenu-open');
+        li.classList.remove('submenu-hover');
         const control = li.querySelector(':scope > button, :scope > a');
         if (control) control.setAttribute('aria-expanded', 'false');
       });
@@ -89,9 +90,16 @@
     backdrop.addEventListener('click', () => setNavOpen(false));
 
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && body.classList.contains('nav-open')) {
+      if (event.key !== 'Escape') return;
+      if (body.classList.contains('nav-open')) {
         setNavOpen(false);
         toggle.focus();
+        return;
+      }
+      const openControl = nav.querySelector('.submenu-open > button');
+      if (openControl) {
+        closeSubmenus();
+        openControl.focus();
       }
     });
 
@@ -120,6 +128,23 @@
 
         li.classList.toggle('submenu-open', opening);
         control.setAttribute('aria-expanded', String(opening));
+      });
+
+      li.addEventListener('pointerenter', event => {
+        if (!mobileMQ.matches && event.pointerType !== 'touch') {
+          li.classList.add('submenu-hover');
+        }
+      });
+      li.addEventListener('pointerleave', event => {
+        if (!mobileMQ.matches && event.pointerType !== 'touch') {
+          li.classList.remove('submenu-hover');
+        }
+      });
+      li.addEventListener('focusout', event => {
+        if (!mobileMQ.matches && !li.contains(event.relatedTarget)) {
+          li.classList.remove('submenu-open');
+          control.setAttribute('aria-expanded', 'false');
+        }
       });
     });
 
