@@ -8,7 +8,7 @@ The launch-critical routes are already directory-based and GitHub Pages-safe:
 - `/riversidecountyfair/`
 - `/sdfair/`
 - `/orangecountyfair/`
-- `/history/`
+- `/locations/`
 - `/contact/`
 
 The existing routes `/about/`, `/californiafairs/`, `/faq/`, `/giveaways/`, `/participate/`, `/pennants/`, `/photos/`, and `/tvsfa/` remain in place to avoid breaking links while the relaunch is staged. They are included in `sitemap.xml`.
@@ -18,8 +18,8 @@ The existing routes `/about/`, `/californiafairs/`, `/faq/`, `/giveaways/`, `/pa
 1. Export the current Wix URL list from its SEO/redirect manager and Search Console, including any campaign, photo, giveaway, or legacy fair URLs.
 2. Map every URL to one of the retained GitHub Pages routes. Keep the path where possible; otherwise create the redirect at the DNS/CDN host. GitHub Pages cannot provide server-side 301 redirects for arbitrary legacy paths on its own.
 3. Confirm the canonical domain (`https://outatthefair.com/`) and add the custom domain in GitHub Pages only after the redirects are ready.
-4. Replace the remote Wix image URLs with approved local image exports before final launch. Each currently has a local SVG fallback, but local originals are preferable for performance and independence.
-5. Supply approved 2027 confirmation details before publishing them: fair agreement status, dates, stage/location, ticket link, entertainment, partners, photography permissions, and a working email-signup destination.
+4. The Wix-served launch image variants are now committed locally; see `docs/ASSET-MIGRATION.md`. Do not replace them with alternate artwork without approval.
+5. Supply approved 2027 confirmation details before publishing them: fair agreement status, dates, stage/location, ticket link, entertainment, partners, and photography permissions. The mailing-list CTA remains intentionally disabled until a verified destination is provided.
 
 ## SEO readiness
 

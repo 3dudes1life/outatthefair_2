@@ -40,6 +40,30 @@ for (const page of pages) {
   }
 }
 
+const launchAssetFiles = [...pages, 'contact/index.html', 'assets/app.css'];
+for (const file of launchAssetFiles) {
+  const contents = readFileSync(resolve(root, file), 'utf8');
+  if (contents.includes('static.wixstatic.com')) {
+    console.error(`${file}: launch surface still depends on Wix-hosted media`);
+    failed = true;
+  }
+}
+for (const asset of [
+  'assets/images/oatf-logo.png',
+  'assets/images/oatf-social-1200x630.jpg',
+  'assets/images/oatf-hero-1200x950.jpg',
+  'assets/images/oatf-hero-1900x1100.jpg',
+  'assets/images/oatf-social-933x525.jpg',
+  'assets/images/riverside-poster.jpg',
+  'assets/images/sandiego-poster.jpg',
+  'assets/images/orangecounty-poster.jpg'
+]) {
+  if (!existsSync(resolve(root, asset))) {
+    console.error(`asset migration: missing local launch asset: ${asset}`);
+    failed = true;
+  }
+}
+
 const riverside = readFileSync(resolve(root, 'riversidecountyfair/index.html'), 'utf8').toLowerCase();
 for (const prohibited of ['returns to the desert', 'see you in 2027 at out at the fair']) {
   if (riverside.includes(prohibited)) {
